@@ -8,7 +8,7 @@ namespace ZUI {
 
 		// Template type must be a DrawCMD subclass
 		template<class T>
-		std::enable_if<std::is_base_of<DrawCMD_Base, T>::value, void> Add(T cmd) {
+		std::enable_if<std::is_base_of<DrawCMD_Base, void>::value, void> Add(T cmd) {
 			cmds.push_back(new T(cmd));
 		}
 
