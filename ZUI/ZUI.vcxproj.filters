@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="src\ZUI\ZUI.h" />
+    <ClInclude Include="src\ZUI\Types\Vec.h" />
+    <ClInclude Include="src\ZUI\Framework.h" />
+    <ClInclude Include="src\ZUI\Types\Area.h" />
+    <ClInclude Include="src\ZUI\Types\Color.h" />
+    <ClInclude Include="src\ZUI\Draw\DrawCMD.h" />
+    <ClInclude Include="src\ZUI\Types\SList.h" />
+    <ClInclude Include="src\ZUI\Draw\DrawList.h" />
+    <ClInclude Include="src\ZUI\Event\Event.h" />
+    <ClInclude Include="src\ZUI\Draw\DrawHelper\DrawHelper.h" />
+    <ClInclude Include="src\ZUI\Draw\DrawUtil\DrawUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ZUI\ZUI.cpp" />
+    <ClCompile Include="src\ZUI\Draw\DrawList.cpp" />
+    <ClCompile Include="src\ZUI\Draw\DrawHelper\DrawHelper.cpp" />
+  </ItemGroup>
+</Project>

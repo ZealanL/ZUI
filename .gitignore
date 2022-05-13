@@ -1,32 +1,14 @@
-# Prerequisites
-*.d
+# Build stuff
+ZUITest/build/*
+ZUI/build/*
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Visual Studio Cache
+.vs/*
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+# Ignore build file types
 *.exe
-*.out
-*.app
+*.dll
+*.lib
+*.pdb
+*.obj
+*.ipch
