@@ -44,16 +44,16 @@ namespace ZUI {
 	};
 
 	// Global colors
-#define ZUI_COL_WHITE		Color(255, 255, 255)
-#define ZUI_COL_BLACK		Color(  0,   0,   0)
-#define ZUI_COL_GRAY		Color(100, 100, 100)
-#define ZUI_COL_DARK_GRAY	Color( 50,  50,  50)
-#define ZUI_COL_RED			Color(255,   0,   0)
-#define ZUI_COL_ORANGE		Color(255, 150,   0)
-#define ZUI_COL_YELLOW		Color(255, 255,   0)
-#define ZUI_COL_GREEN		Color(  0, 255,   0)
-#define ZUI_COL_BLUE		Color(  0, 100, 255)
-#define ZUI_COL_MAGENTA		Color(  0, 255, 255)
+#define ZUI_COL_WHITE		ZUI::Color(255, 255, 255)
+#define ZUI_COL_BLACK		ZUI::Color(  0,   0,   0)
+#define ZUI_COL_GRAY		ZUI::Color(100, 100, 100)
+#define ZUI_COL_DARK_GRAY	ZUI::Color( 50,  50,  50)
+#define ZUI_COL_RED			ZUI::Color(255,   0,   0)
+#define ZUI_COL_ORANGE		ZUI::Color(255, 150,   0)
+#define ZUI_COL_YELLOW		ZUI::Color(255, 255,   0)
+#define ZUI_COL_GREEN		ZUI::Color(  0, 255,   0)
+#define ZUI_COL_BLUE		ZUI::Color(  0, 100, 255)
+#define ZUI_COL_MAGENTA		ZUI::Color(  0, 255, 255)
 
 // Color as HSVA ([hue, saturation, value, alpha] aka normal HSV with alpha byte)
 	struct HSVColor {
