@@ -34,11 +34,11 @@ void ZUI::DrawHelper::ResetDrawLevel() {
 }
 
 void Rect(Area area, Color color, float rounding, bool filled) {
-	DrawCMD_Rect cmd(DrawHelper::GetTrueDrawLevel());
-	cmd.area = area;
-	cmd.color = color;
-	cmd.rounding = rounding;
-	cmd.filled = filled;
+	auto cmd = new DrawCMD_Rect(DrawHelper::GetTrueDrawLevel());
+	cmd->area = area;
+	cmd->color = color;
+	cmd->rounding = rounding;
+	cmd->filled = filled;
 
 	DL.Add(cmd);
 }
@@ -60,11 +60,11 @@ void ZUI::DrawHelper::OutlineRect(Area area, Color color, float rounding) {
 }
 
 void ZUI::DrawHelper::Line(Vec start, Vec end, Color color, float width) {
-	DrawCMD_Line cmd(GetTrueDrawLevel());
-	cmd.start = start;
-	cmd.end = end;
-	cmd.color = color;
-	cmd.width = width;
+	auto cmd = new DrawCMD_Line(GetTrueDrawLevel());
+	cmd->start = start;
+	cmd->end = end;
+	cmd->color = color;
+	cmd->width = width;
 
 	DL.Add(cmd);
 }
@@ -73,11 +73,11 @@ void ZUI::DrawHelper::Text(string text, Vec pos, Color color, Vec centering) {
 	if (text.empty())
 		return;
 
-	DrawCMD_Text cmd(GetTrueDrawLevel());
-	cmd.text = text;
-	cmd.font = GetCurrentFontIndex();
-	cmd.pos = pos - DrawUtil::GetTextSize(GetCurrentFontIndex(), text) * centering;
-	cmd.color = color;
+	auto cmd = new DrawCMD_Text(GetTrueDrawLevel());
+	cmd->text = text;
+	cmd->font = GetCurrentFontIndex();
+	cmd->pos = pos - DrawUtil::GetTextSize(GetCurrentFontIndex(), text) * centering;
+	cmd->color = color;
 
 	DL.Add(cmd);
 }
