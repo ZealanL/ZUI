@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ZUI\ClientFuncs\ClientFuncs.h" />
     <ClInclude Include="src\ZUI\Draw\DrawCMD.h" />
     <ClInclude Include="src\ZUI\Draw\DrawHelper\DrawHelper.h" />
     <ClInclude Include="src\ZUI\Draw\DrawList.h" />
-    <ClInclude Include="src\ZUI\Draw\DrawUtil\DrawUtil.h" />
     <ClInclude Include="src\ZUI\Event\Event.h" />
     <ClInclude Include="src\ZUI\Framework.h" />
     <ClInclude Include="src\ZUI\Types\Area.h" />
@@ -32,6 +32,7 @@
     <ClInclude Include="src\ZUI\ZUI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ZUI\Draw\DrawCMD.cpp" />
     <ClCompile Include="src\ZUI\Draw\DrawHelper\DrawHelper.cpp" />
     <ClCompile Include="src\ZUI\Draw\DrawList.cpp" />
     <ClCompile Include="src\ZUI\ZUI.cpp" />

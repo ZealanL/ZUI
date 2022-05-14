@@ -2,6 +2,8 @@
 #include "Draw/DrawList.h"
 #include "Event/Event.h"
 
+#include "ClientFuncs/ClientFuncs.h"
+
 namespace ZUI {
 	DrawList& GetDrawList();
 	EventQueue& GetEventQueue();

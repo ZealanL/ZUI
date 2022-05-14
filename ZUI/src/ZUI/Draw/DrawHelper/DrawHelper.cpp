@@ -1,6 +1,7 @@
 #include "DrawHelper.h"
-#include "../DrawUtil/DrawUtil.h"
 #include "../../ZUI.h"
+
+#include "../../ClientFuncs/ClientFuncs.h"
 using namespace ZUI;
 
 #define DL GetDrawList()
@@ -76,7 +77,7 @@ void ZUI::DrawHelper::Text(string text, Vec pos, Color color, Vec centering) {
 	auto cmd = new DrawCMD_Text(GetTrueDrawLevel());
 	cmd->text = text;
 	cmd->font = GetCurrentFontIndex();
-	cmd->pos = pos - DrawUtil::GetTextSize(GetCurrentFontIndex(), text) * centering;
+	cmd->pos = pos - CF_GetTextSize(GetCurrentFontIndex(), text) * centering;
 	cmd->color = color;
 
 	DL.Add(cmd);

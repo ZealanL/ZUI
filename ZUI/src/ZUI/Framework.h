@@ -31,6 +31,8 @@
 #endif
 
 namespace ZUI {
+	typedef uint32_t FontIndex;
+
 	typedef uint8_t byte;
 	using std::string;
 	using std::vector;

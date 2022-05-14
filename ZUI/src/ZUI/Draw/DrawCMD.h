@@ -7,8 +7,6 @@
 #include "../Types/SList.h"
 
 namespace ZUI {
-	typedef uint32_t FontIndex;
-
 	class DrawCMD_Base {
 	public:
 		// Controls the execution order priority of this command
@@ -16,10 +14,7 @@ namespace ZUI {
 
 		DrawCMD_Base(int drawLevel) : drawLevel(drawLevel) {}
 
-		// Client will need to implement (will ZUI_ERROR otherwise)
-		virtual void Execute() const {
-			ZUI_ERROR(ZUI_FMT("{}::Execute() not implemented!", typeid(this).name()).c_str());
-		}
+		virtual void Execute() = NULL;
 	};
 
 	class DrawCMD_Rect : public DrawCMD_Base {
@@ -30,6 +25,7 @@ namespace ZUI {
 		bool filled;
 
 		DrawCMD_Rect(int drawLevel) : DrawCMD_Base(drawLevel) {}
+		virtual void Execute();
 	};
 
 	class DrawCMD_Line : public DrawCMD_Base {
@@ -39,6 +35,7 @@ namespace ZUI {
 		float width;
 
 		DrawCMD_Line(int drawLevel) : DrawCMD_Base(drawLevel) {}
+		virtual void Execute();
 	};
 
 	class DrawCMD_Polygon : public DrawCMD_Base {
@@ -48,6 +45,7 @@ namespace ZUI {
 		bool filled;
 
 		DrawCMD_Polygon(int drawLevel) : DrawCMD_Base(drawLevel) {}
+		virtual void Execute();
 	};
 
 	class DrawCMD_Text : public DrawCMD_Base {
@@ -58,5 +56,6 @@ namespace ZUI {
 		Color color;
 
 		DrawCMD_Text(int drawLevel) : DrawCMD_Base(drawLevel) {}
+		virtual void Execute();
 	};
 }
