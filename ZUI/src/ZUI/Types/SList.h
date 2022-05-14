@@ -23,7 +23,8 @@ namespace ZUI {
 		}
 
 		SList(const T* begin, int size) {
-			SList(size);
+			_size = size;
+			_data = (T*)malloc(size * sizeof(T));
 			memcpy(_data, begin, GetDataAllocSize());
 		}
 
