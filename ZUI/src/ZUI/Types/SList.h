@@ -17,9 +17,13 @@ namespace ZUI {
 			_data = NULL;
 		}
 
-		SList(const T* begin, int size) {
+		SList(int size) {
 			_size = size;
 			_data = (T*)malloc(size * sizeof(T));
+		}
+
+		SList(const T* begin, int size) {
+			SList(size);
 			memcpy(_data, begin, GetDataAllocSize());
 		}
 
@@ -27,12 +31,12 @@ namespace ZUI {
 		SList(const SList& other) : SList(other._data, other._size) {}
 
 		T& operator[](int index) {
-			ZUI_ASSERT(index, _size);
+			ZUI_ASSERT(index >= 0 && index < size);
 			return _data[index];
 		}
 
 		const T& operator[](int index) const {
-			ZUI_ASSERT(index, _size);
+			ZUI_ASSERT(index >= 0 && index < size);
 			return _data[index];
 		}
 
