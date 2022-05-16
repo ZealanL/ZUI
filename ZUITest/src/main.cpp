@@ -1,9 +1,15 @@
 #include "Framework.h"
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif
+
 #include <ZUI/Draw/DrawHelper/DrawHelper.h>
 
 SDL_Window* g_SDLWindow = NULL;
 SDL_Renderer* g_SDLRenderer = NULL;
+
+TTF_Font* g_Font = NULL;
 
 // Utility for setting g_SDLRenderer's draw color to a ZUI color
 void SetSDLDrawCol(ZUI::Color color) {
@@ -45,7 +51,16 @@ namespace ZUI {
 	void CF_RenderText(string text, FontIndex fontIndex, Vec pos, Color color) {
 		SetSDLDrawCol(color);
 
-		// TODO: Implement
+		SDL_Surface* textSurface = TTF_RenderText_Blended(g_Font, text.c_str(), SDL_Color(color.r, color.g, color.b, color.a));
+		assert(textSurface);
+
+		SDL_Texture* textTexture = SDL_CreateTextureFromSurface(g_SDLRenderer, textSurface);
+
+		SDL_FRect posRect = SDL_FRect(pos.x, pos.y, textSurface->w, textSurface->h);
+		SDL_RenderCopyF(g_SDLRenderer, textTexture, NULL, &posRect);
+
+		SDL_DestroyTexture(textTexture);
+		SDL_FreeSurface(textSurface);
 	}
 
 	void CF_RenderPolygon(SList<Vec> points, Color color, bool filled) {
@@ -80,8 +95,9 @@ namespace ZUI {
 	}
 
 	Vec	CF_GetTextSize(FontIndex font, string text) {
-		// TODO: Implement
-		return Vec();
+		int w, h;
+		TTF_SizeText(g_Font, text.c_str(), &w, &h);
+		return Vec(w, h);
 	}
 }
 
@@ -99,6 +115,26 @@ int main() {
 
 	// Enable blending with transparency
 	SDL_SetRenderDrawBlendMode(g_SDLRenderer, SDL_BLENDMODE_BLEND);
+
+	{
+		// Initialize SDL_ttf
+		TTF_Init();
+
+
+		string fontsPath;
+#ifdef _WIN32
+		char winDirBuf[MAX_PATH];
+		GetWindowsDirectoryA(winDirBuf, MAX_PATH);
+		fontsPath = winDirBuf;
+		fontsPath += "\\fonts\\";
+#else
+		// TODO: Implement
+#endif
+
+		// Load font file
+		g_Font = TTF_OpenFont((fontsPath + "verdana.ttf").c_str(), 18);
+		assert(g_Font);
+	}
 
 	// Main loop
 	while (true) {
