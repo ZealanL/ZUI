@@ -53,7 +53,7 @@ namespace ZUI {
 #define ZUI_COL_YELLOW		ZUI::Color(255, 255,   0)
 #define ZUI_COL_GREEN		ZUI::Color(  0, 255,   0)
 #define ZUI_COL_BLUE		ZUI::Color(  0, 100, 255)
-#define ZUI_COL_MAGENTA		ZUI::Color(  0, 255, 255)
+#define ZUI_COL_MAGENTA		ZUI::Color(255,   0, 255)
 
 // Color as HSVA ([hue, saturation, value, alpha] aka normal HSV with alpha byte)
 	struct HSVColor {
