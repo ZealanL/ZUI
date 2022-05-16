@@ -1,6 +1,7 @@
 #include "DrawCMD.h"
 
 #include "../ClientFuncs/ClientFuncs.h"
+#include "../ZUI.h"
 
 void ZUI::DrawCMD_Rect::Execute() {
 	// TODO: Support rounded rects (RenderPolygon)
@@ -17,4 +18,9 @@ void ZUI::DrawCMD_Polygon::Execute() {
 
 void ZUI::DrawCMD_Text::Execute() {
 	CF_RenderText(this->text, this->font, this->pos, this->color);
+}
+
+ZUI::DrawCMD_Base::DrawCMD_Base() {
+	this->drawLevel = ZUI::g_FrameState.drawLevel;
+	this->clipArea = ZUI::g_FrameState.clipAreaStack.top();
 }

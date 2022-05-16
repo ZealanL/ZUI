@@ -12,14 +12,17 @@
     <ClInclude Include="src\ZUI\Event\Event.h" />
     <ClInclude Include="src\ZUI\Draw\DrawHelper\DrawHelper.h" />
     <ClInclude Include="src\ZUI\ClientFuncs\ClientFuncs.h" />
-    <ClInclude Include="src\ZUI\UI\UIWidgets\UIWidgets.h" />
+    <ClInclude Include="src\ZUI\UI\Items\Items.h" />
     <ClInclude Include="src\ZUI\State\FrameState.h" />
+    <ClInclude Include="src\ZUI\Config\Config.h" />
+    <ClInclude Include="src\ZUI\UI\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ZUI\ZUI.cpp" />
     <ClCompile Include="src\ZUI\Draw\DrawList.cpp" />
     <ClCompile Include="src\ZUI\Draw\DrawHelper\DrawHelper.cpp" />
     <ClCompile Include="src\ZUI\Draw\DrawCMD.cpp" />
-    <ClCompile Include="src\ZUI\UI\UIWidgets\UIWidgets.cpp" />
+    <ClCompile Include="src\ZUI\UI\Items\Items.cpp" />
+    <ClCompile Include="src\ZUI\UI\UI.cpp" />
   </ItemGroup>
 </Project>

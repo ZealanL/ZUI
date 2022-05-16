@@ -86,6 +86,10 @@ namespace ZUI {
 		bool operator <(Vec other)		const { return other > *this; }
 		bool operator >=(Vec other)		const { return *this > other || *this == other; }
 		bool operator <=(Vec other)		const { return *this < other || *this == other; }
+
+		Vec operator-() {
+			return Vec(-x, -y);
+		}
 #pragma endregion
 	};
 }

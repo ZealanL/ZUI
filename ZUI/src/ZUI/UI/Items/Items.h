@@ -2,7 +2,7 @@
 #include "../../Types/Area.h"
 
 namespace ZUI {
-	namespace UIWidgets {
+	namespace Items {
 		// Returns true if clicked this frame
 		bool Button(string text);
 

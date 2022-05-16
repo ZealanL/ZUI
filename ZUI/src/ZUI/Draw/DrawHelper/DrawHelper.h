@@ -3,16 +3,6 @@
 
 namespace ZUI {
 	namespace DrawHelper {
-
-		// If true, we increase drawcount a bunch to render on top of everything as an (overlay)
-		void SetOverlayMode(bool overlayMode);
-
-		int GetCurrentDrawLevel();
-		int GetTrueDrawLevel(); // Like GetCurrentDrawLevel, but accounts for overlay mode
-		void IncDrawLevel();
-		void DecDrawLevel();
-		void ResetDrawLevel();
-
 		void FillRect(Vec start, Vec end, Color color, float rounding = 0);
 		void FillRect(Area area, Color color, float rounding = 0);
 		void OutlineRect(Vec start, Vec end, Color color, float rounding = 0);

@@ -27,7 +27,7 @@ void ZUI::StartFrame() {
 	}
 
 	GetDrawList().Clear();
-	DrawHelper::ResetDrawLevel();
+	g_FrameState = FrameState();
 }
 
 void ZUI::EndFrame() {

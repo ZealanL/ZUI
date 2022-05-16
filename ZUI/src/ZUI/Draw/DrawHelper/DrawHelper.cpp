@@ -6,36 +6,8 @@ using namespace ZUI;
 
 #define DL GetDrawList()
 
-bool inOverlayMode = false;
-void ZUI::DrawHelper::SetOverlayMode(bool newOverlayMode) {
-	inOverlayMode = newOverlayMode;
-}
-
-int curDrawLevel = 0;
-
-int ZUI::DrawHelper::GetCurrentDrawLevel() {
-	return curDrawLevel;
-}
-
-int ZUI::DrawHelper::GetTrueDrawLevel() {
-	return curDrawLevel + (inOverlayMode ? 0 : 0x10000);
-}
-
-void ZUI::DrawHelper::IncDrawLevel() {
-	curDrawLevel++;
-}
-
-void ZUI::DrawHelper::DecDrawLevel() {
-	ZUI_ASSERT(curDrawLevel > 0);
-	curDrawLevel--;
-}
-
-void ZUI::DrawHelper::ResetDrawLevel() {
-	curDrawLevel = 0;
-}
-
 void Rect(Area area, Color color, float rounding, bool filled) {
-	auto cmd = new DrawCMD_Rect(DrawHelper::GetTrueDrawLevel());
+	auto cmd = new DrawCMD_Rect();
 	cmd->area = area;
 	cmd->color = color;
 	cmd->rounding = rounding;
@@ -61,7 +33,7 @@ void ZUI::DrawHelper::OutlineRect(Area area, Color color, float rounding) {
 }
 
 void ZUI::DrawHelper::Line(Vec start, Vec end, Color color, float width) {
-	auto cmd = new DrawCMD_Line(GetTrueDrawLevel());
+	auto cmd = new DrawCMD_Line();
 	cmd->start = start;
 	cmd->end = end;
 	cmd->color = color;
@@ -74,7 +46,7 @@ void ZUI::DrawHelper::Text(string text, Vec pos, Color color, Vec centering) {
 	if (text.empty())
 		return;
 
-	auto cmd = new DrawCMD_Text(GetTrueDrawLevel());
+	auto cmd = new DrawCMD_Text();
 	cmd->text = text;
 	cmd->font = GetCurrentFontIndex();
 	cmd->pos = pos - CF_GetTextSize(GetCurrentFontIndex(), text) * centering;

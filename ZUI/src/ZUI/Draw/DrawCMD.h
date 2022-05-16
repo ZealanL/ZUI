@@ -15,6 +15,8 @@ namespace ZUI {
 		// Clipping for draw area
 		Area clipArea;
 
+		DrawCMD_Base();
+
 		virtual void Execute() = NULL;
 	};
 

@@ -15,7 +15,7 @@ void ZUI::DrawList::ExecuteAll() {
 	// Using stable_sort to maintain original order for consecutive same-drawlevel cmds
 	std::stable_sort(sortedCmds.begin(), sortedCmds.end(), 
 		[](DrawCMD_Base* a, DrawCMD_Base* b) {
-			return a->drawLevel > b->drawLevel;
+			return a->drawLevel < b->drawLevel;
 		}
 	);
 

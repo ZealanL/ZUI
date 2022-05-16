@@ -89,15 +89,22 @@ namespace ZUI {
 			return newArea;
 		}
 
-		//  a horizontal row from the top, down a specific height
+		// Get a horizontal row from the top, down a specific height
 		Area Row(float height, bool clip = false) {
 			Area newArea = *this;
-			newArea.max = newArea.min + (clip ? Min(Height(), height) : height);
+			newArea.max.y = newArea.min.y + (clip ? Min(Height(), height) : height);
+			return newArea;
 		}
 
 		// Area is expanded outwards by a certain amount (or shrunk if negative)
 		Area Expand(float amount) {
 			Vec expandVec = Vec(Min(amount, Width() / 2), Min(amount, Height() / 2));
+			return Area(min - expandVec, max + expandVec);
+		}
+
+		// Area is expanded outwards by a certain vec amount (or shrunk if negative)
+		Area Expand(Vec amount) {
+			Vec expandVec = Vec(Min(amount.x, Width() / 2), Min(amount.y, Height() / 2));
 			return Area(min - expandVec, max + expandVec);
 		}
 

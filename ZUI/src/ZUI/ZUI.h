@@ -7,6 +7,7 @@
 #include "Config/Config.h"
 
 #include "UI/UI.h"
+#include "UI/Items/Items.h"
 
 namespace ZUI {
 
@@ -15,8 +16,8 @@ namespace ZUI {
 	extern Config g_Config;
 
 	DrawList& GetDrawList();
-	EventQueue& GetEventQueue();
 
+	EventQueue& GetEventQueue();
 	void AddEvent(Event event);
 
 	void StartFrame();
@@ -24,5 +25,4 @@ namespace ZUI {
 
 	void SetCurrentFontIndex(FontIndex newIndex);
 	FontIndex GetCurrentFontIndex();
-
 }

@@ -103,14 +103,23 @@ namespace ZUI {
 
 // Draw actual UI via ZUI
 void DrawTestUI() {
-	// TODO: ...
+	ZUI::Vec windowPos = ZUI::Vec(100, 100);
+	ZUI::Vec windowSize = ZUI::Vec(400, 800);
+	
+	ZUI::Area windowArea = ZUI::Area(windowPos, windowPos + windowSize);
+
+	ZUI::StartWindow(windowArea);
+	{
+		ZUI::Items::Button("Test Button");
+	}
+	ZUI::EndWindow();
 }
 
 int main() {
 	using namespace ZUI;
 
 	// Set up a quick SDL window and renderer
-	g_SDLWindow = SDL_CreateWindow("ZUI SDL2 Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
+	g_SDLWindow = SDL_CreateWindow("ZUI SDL2 Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_MAXIMIZED | SDL_WINDOW_SHOWN);
 	g_SDLRenderer = SDL_CreateRenderer(g_SDLWindow, -1, 0);
 
 	// Enable blending with transparency
@@ -132,7 +141,7 @@ int main() {
 #endif
 
 		// Load font file
-		g_Font = TTF_OpenFont((fontsPath + "verdana.ttf").c_str(), 18);
+		g_Font = TTF_OpenFont((fontsPath + "verdana.ttf").c_str(), 14);
 		assert(g_Font);
 	}
 

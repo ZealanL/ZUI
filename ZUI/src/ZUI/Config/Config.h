@@ -9,9 +9,11 @@ namespace ZUI {
 		struct {
 			Color text = Color(255, 255, 255);
 			Color outline = Color(255, 255, 255, 100);
-
+			
 			Color windowBg = Color(30, 30, 30);
 			Color sectionBg = Color(38, 38, 38);
+
+			Color widgetBg = Color(25, 25, 25, 255);
 		} colors;
 
 		struct {
