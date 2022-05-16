@@ -27,6 +27,7 @@
     <ClInclude Include="src\ZUI\Event\Event.h" />
     <ClInclude Include="src\ZUI\Framework.h" />
     <ClInclude Include="src\ZUI\State\FrameState.h" />
+    <ClInclude Include="src\ZUI\State\InputState.h" />
     <ClInclude Include="src\ZUI\Types\Area.h" />
     <ClInclude Include="src\ZUI\Types\Vec.h" />
     <ClInclude Include="src\ZUI\Types\Color.h" />

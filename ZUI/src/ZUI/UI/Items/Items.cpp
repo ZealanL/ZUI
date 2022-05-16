@@ -5,11 +5,14 @@
 using namespace ZUI;
 using namespace DrawHelper;
 
-void DrawWidgetRect(Area area) {
-	FillRect(area, g_Config.colors.widgetBg);
+void DrawWidgetRect(Area area, bool hoverable = true) {
+	FillRect(area, g_Config.colors.itemBg);
 
 	if (g_Config.colors.outline.a > 0)
 		OutlineRect(area, g_Config.colors.outline);
+
+	if (hoverable && IsMouseInArea(area))
+		FillRect(area, g_Config.colors.itemHoverOverlay);
 }
 
 bool ZUI::Items::Button(string text) {

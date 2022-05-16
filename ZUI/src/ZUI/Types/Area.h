@@ -155,5 +155,13 @@ namespace ZUI {
 
 			return newArea;
 		}
+
+		bool Contains(Vec point) {
+			return this->min <= point && this->max >= point;
+		}
+
+		bool Contains(Area area) {
+			return (area.min >= this->min) && (area.max <= area.max);
+		}
 	};
 }

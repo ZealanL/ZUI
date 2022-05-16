@@ -4,6 +4,7 @@
 
 #include "ClientFuncs/ClientFuncs.h"
 #include "State/FrameState.h"
+#include "State/InputState.h"
 #include "Config/Config.h"
 
 #include "UI/UI.h"
@@ -13,6 +14,7 @@ namespace ZUI {
 
 	// Global variables
 	extern FrameState g_FrameState;
+	extern InputState g_InputState;
 	extern Config g_Config;
 
 	DrawList& GetDrawList();

@@ -5,13 +5,12 @@
 using namespace ZUI;
 
 // TODO: Move (?)
-bool inWindow = false;
 void ZUI::StartWindow(Area windowArea) {
-	if (inWindow) {
-		return ZUI_ERROR("Cannot call ZUI::StartWindow() again before ZUI::EndWindow()");
+	if (g_FrameState.inWindow) {
+		return ZUI_ERROR("Cannot call StartWindow() again before EndWindow()");
 	} else {
-		ZUI::g_FrameState.windowIndex++;
-		inWindow = true;
+		g_FrameState.windowIndex++;
+		g_FrameState.inWindow = true;
 	}
 
 	g_FrameState.windowArea = windowArea;
@@ -25,10 +24,10 @@ void ZUI::StartWindow(Area windowArea) {
 }
 
 void ZUI::EndWindow() {
-	if (!inWindow) {
-		return ZUI_ERROR("Cannot call ZUI::EndWindow() before ZUI::StartWindow()");
+	if (!g_FrameState.inWindow) {
+		return ZUI_ERROR("Cannot call EndWindow() before StartWindow()");
 	} else {
-		inWindow = false;
+		g_FrameState.inWindow = false;
 	}
 
 	g_FrameState.drawLevel--;
@@ -48,4 +47,8 @@ Area ZUI::ConsumeItemArea(float height) {
 	resultArea.Move(Vec(0, g_FrameState.drawUIHeight));
 	g_FrameState.drawUIHeight += height + g_Config.sizes.padding.y;
 	return resultArea;
+}
+
+bool ZUI::IsMouseInArea(Area area) {
+	return area.Contains(g_InputState.mousePos);
 }

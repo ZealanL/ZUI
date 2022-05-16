@@ -101,6 +101,23 @@ namespace ZUI {
 	}
 }
 
+// Converts a SDL_Event to a ZUI::Event (if there's a corresponding event) and sends it to ZUI
+void SendSDLEventToZUI(SDL_Event* sdlEvent) {
+	switch (sdlEvent->type) {
+	case SDL_MOUSEMOTION:
+	{
+		ZUI::AddEvent(
+			ZUI::Event(
+				ZUI::EventType::E_MOUSEMOVE,
+				NULL,
+				sdlEvent->motion.x, sdlEvent->motion.y
+			)
+		);
+		break;
+	}
+	}
+}
+
 // Draw actual UI via ZUI
 void DrawTestUI() {
 	ZUI::Vec windowPos = ZUI::Vec(100, 100);
@@ -153,8 +170,11 @@ int main() {
 		while (SDL_PollEvent(&event)) {
 
 			// Window closed
-			if (event.type == SDL_QUIT)
+			if (event.type == SDL_QUIT) {
 				exit(EXIT_SUCCESS);
+			} else {
+				SendSDLEventToZUI(&event);
+			}
 		}
 
 		// Clear with black background at the start of each frame

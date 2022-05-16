@@ -5,6 +5,7 @@ namespace ZUI {
 	// State created for and maintained during a frame
 	struct FrameState {
 
+		bool inWindow = false;
 		int windowIndex = -1; // Incremented when window is started
 		int drawLevel = 0;
 		bool inOverlayMode = false;

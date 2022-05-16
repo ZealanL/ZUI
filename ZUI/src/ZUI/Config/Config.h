@@ -13,7 +13,8 @@ namespace ZUI {
 			Color windowBg = Color(30, 30, 30);
 			Color sectionBg = Color(38, 38, 38);
 
-			Color widgetBg = Color(25, 25, 25, 255);
+			Color itemBg = Color(25, 25, 25, 255);
+			Color itemHoverOverlay = Color(255, 255, 255, 20);
 		} colors;
 
 		struct {

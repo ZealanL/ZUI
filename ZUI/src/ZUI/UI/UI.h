@@ -11,4 +11,6 @@ namespace ZUI {
 	// Get the area for an item of a certain height, will increment g_FrameState.drawUIHeight and pad
 	// If height is 0, will be set to g_Config.sizes.baseItemHeight
 	Area ConsumeItemArea(float height = 0);
+
+	bool IsMouseInArea(Area area);
 }

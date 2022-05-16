@@ -16,6 +16,7 @@
     <ClInclude Include="src\ZUI\State\FrameState.h" />
     <ClInclude Include="src\ZUI\Config\Config.h" />
     <ClInclude Include="src\ZUI\UI\UI.h" />
+    <ClInclude Include="src\ZUI\State\InputState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ZUI\ZUI.cpp" />
