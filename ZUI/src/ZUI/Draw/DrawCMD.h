@@ -15,8 +15,6 @@ namespace ZUI {
 		// Clipping for draw area
 		Area clipArea;
 
-		DrawCMD_Base(int drawLevel) : drawLevel(drawLevel) {}
-
 		virtual void Execute() = NULL;
 	};
 
@@ -27,7 +25,6 @@ namespace ZUI {
 		float rounding;
 		bool filled;
 
-		DrawCMD_Rect(int drawLevel) : DrawCMD_Base(drawLevel) {}
 		virtual void Execute();
 	};
 
@@ -37,7 +34,6 @@ namespace ZUI {
 		Color color;
 		float width;
 
-		DrawCMD_Line(int drawLevel) : DrawCMD_Base(drawLevel) {}
 		virtual void Execute();
 	};
 
@@ -47,7 +43,6 @@ namespace ZUI {
 		Color color;
 		bool filled;
 
-		DrawCMD_Polygon(int drawLevel) : DrawCMD_Base(drawLevel) {}
 		virtual void Execute();
 	};
 
@@ -58,7 +53,6 @@ namespace ZUI {
 		Vec pos;
 		Color color;
 
-		DrawCMD_Text(int drawLevel) : DrawCMD_Base(drawLevel) {}
 		virtual void Execute();
 	};
 }
