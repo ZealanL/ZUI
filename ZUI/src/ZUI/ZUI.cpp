@@ -3,6 +3,7 @@
 using namespace ZUI;
 
 FrameState ZUI::g_FrameState;
+Config ZUI::g_Config;
 
 DrawList& ZUI::GetDrawList() {
 	static DrawList frameDrawList;
