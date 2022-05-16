@@ -12,8 +12,8 @@
     <ClInclude Include="src\ZUI\Event\Event.h" />
     <ClInclude Include="src\ZUI\Draw\DrawHelper\DrawHelper.h" />
     <ClInclude Include="src\ZUI\ClientFuncs\ClientFuncs.h" />
-    <ClInclude Include="src\ZUI\UI\UIState.h" />
     <ClInclude Include="src\ZUI\UI\UIWidgets\UIWidgets.h" />
+    <ClInclude Include="src\ZUI\State\FrameState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ZUI\ZUI.cpp" />

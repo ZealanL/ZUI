@@ -12,6 +12,9 @@ namespace ZUI {
 		// Controls the execution order priority of this command
 		int drawLevel; 
 
+		// Clipping for draw area
+		Area clipArea;
+
 		DrawCMD_Base(int drawLevel) : drawLevel(drawLevel) {}
 
 		virtual void Execute() = NULL;

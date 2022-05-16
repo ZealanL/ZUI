@@ -1,4 +1,12 @@
 #include "DrawList.h"
+#include "../ClientFuncs/ClientFuncs.h"
+
+#include "../ZUI.h"
+
+void ZUI::DrawList::Add(DrawCMD_Base* cmd) {
+	cmd->clipArea = g_FrameState.clipAreaStack.top();
+	cmds.push_back(cmd);
+}
 
 void ZUI::DrawList::ExecuteAll() {
 	vector<DrawCMD_Base*> sortedCmds = cmds;
@@ -12,6 +20,8 @@ void ZUI::DrawList::ExecuteAll() {
 	);
 
 	// Execute all
-	for (auto cmd : sortedCmds)
+	for (auto cmd : sortedCmds) {
+		ZUI::CF_SetClipArea(cmd->clipArea);
 		cmd->Execute();
+	}
 }

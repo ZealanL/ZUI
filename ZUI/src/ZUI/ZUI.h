@@ -3,8 +3,13 @@
 #include "Event/Event.h"
 
 #include "ClientFuncs/ClientFuncs.h"
+#include "State/FrameState.h"
 
 namespace ZUI {
+
+	// Global variables
+	extern FrameState g_FrameState;
+
 	DrawList& GetDrawList();
 	EventQueue& GetEventQueue();
 
@@ -15,4 +20,5 @@ namespace ZUI {
 
 	void SetCurrentFontIndex(FontIndex newIndex);
 	FontIndex GetCurrentFontIndex();
+
 }

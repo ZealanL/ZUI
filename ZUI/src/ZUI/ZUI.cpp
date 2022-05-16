@@ -2,6 +2,8 @@
 #include "../ZUI/Draw/DrawHelper/DrawHelper.h"
 using namespace ZUI;
 
+FrameState ZUI::g_FrameState;
+
 DrawList& ZUI::GetDrawList() {
 	static DrawList frameDrawList;
 	return frameDrawList;

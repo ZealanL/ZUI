@@ -6,9 +6,7 @@ namespace ZUI {
 	struct DrawList {
 		vector<DrawCMD_Base*> cmds;
 
-		void Add(DrawCMD_Base* cmd) {
-			cmds.push_back(cmd);
-		}
+		void Add(DrawCMD_Base* cmd);
 
 		void Clear() {
 			for (auto drawCmd : cmds)

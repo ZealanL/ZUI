@@ -12,6 +12,11 @@ void SetSDLDrawCol(ZUI::Color color) {
 
 // Client function implementations for SDL2 and SDL2_ttf
 namespace ZUI {
+	void CF_SetClipArea(Area clipArea) {
+		SDL_Rect clipRect = SDL_Rect(clipArea.min.x, clipArea.min.y, clipArea.Width(), clipArea.Height());
+		SDL_RenderSetClipRect(g_SDLRenderer, &clipRect);
+	}
+
 	void CF_RenderRect(Area area, Color color, bool filled) {
 		SetSDLDrawCol(color);
 

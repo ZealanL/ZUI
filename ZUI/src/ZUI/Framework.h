@@ -9,6 +9,7 @@
 #include <fstream>
 #include <filesystem>
 #include <format>
+#include <stack>
 #include <cmath>
 #include <cassert>
 #include <mutex>
@@ -36,7 +37,6 @@ namespace ZUI {
 	typedef uint8_t byte;
 	using std::string;
 	using std::vector;
-	using std::pair;
 
 	template<typename T>
 	T Min(T a, T b) {
